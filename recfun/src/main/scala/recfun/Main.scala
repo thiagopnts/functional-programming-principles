@@ -16,11 +16,11 @@ object Main {
    */
   def pascal(c: Int, r: Int): Int = {
     if (c == 0 || c == r) {
-      return 1
+      1
     } else if(c == 1 || (c + 1) == r) {
-      return r
+      r
     } else {
-     return pascal(r - 1, c - 1) + pascal(r - 1, c) 
+      pascal(r - 1, c - 1) + pascal(r - 1, c) 
     }
   }
 
@@ -30,15 +30,15 @@ object Main {
   def balance(chars: List[Char]): Boolean = {
     def helper(chars: List[Char], count: Int): Boolean = {
       if(count < 0) {
-        return false
+        false
       } else if(chars.isEmpty) {
-        return count == 0
+        count == 0
       } else if(chars.head == '('){
-        return helper(chars.tail, count + 1)
+        helper(chars.tail, count + 1)
       } else if(chars.head == ')') {
-        return helper(chars.tail, count - 1)
+        helper(chars.tail, count - 1)
       } else {
-    	return helper(chars.tail, count)
+    	helper(chars.tail, count)
       }
     }
     helper(chars, 0)
