@@ -15,12 +15,10 @@ object Main {
    * Exercise 1
    */
   def pascal(c: Int, r: Int): Int = {
-    if (c == 0 || c == r) {
-      1
-    } else if(c == 1 || (c + 1) == r) {
-      r
-    } else {
-      pascal(r - 1, c - 1) + pascal(r - 1, c) 
+    (c, r) match {
+      case (c, r) if c == 0 || c == r => 1
+      case (c, r) if c == 1 || (c + 1) == r => r
+      case _ => pascal(r - 1, c -1) + pascal(r - 1, c -1)
     }
   }
 
